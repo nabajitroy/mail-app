@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <title>My Email App</title>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="assets/css/mdb.min.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+</head>
+<body ng-app="emailApp" ng-controller="emailsController">
+ <!--Main Navigation-->
+<header   ng-show="session.isLogedin===true" >
+    <nav class="navbar navbar-expand-lg navbar-dark default-color-dark ">
+    <a class="navbar-brand" href="index.html">Demo Web  Mail</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        
+            
+               
+<!-- Search form -->
+<input class="form-control search" type="text" placeholder="Search" aria-label="Search">
+                            
+          
+          
+         <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">14 <i class="fa fa-envelope"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">8 <i class="fa fa-eye"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">1 <i class="fa fa-bullhorn"></i></a>
+            </li>
+            <li class="nav-item avatar dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="http://www.torneodj.com/files/avatar/2_120.jpg" class="img-fluid rounded-circle z-depth-0" width="30"></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-purple" aria-labelledby="navbarDropdownMenuLink-5">
+                    <a class="dropdown-item whov" href="#"><i class="fa fa-plus"></i> Agregar post</a>
+                    <a class="dropdown-item whov" href="#"  ng-click="logOut()"><i class="fa fa-edit"></i> Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+	  
+</nav>
+ 
+</header>
+    
+ <div class="row main-row">
+ 
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12" ng-show="session.isLogedin===true" >
+		 
+		  <md-button class="md-primary md-raised" ng-click="showCreateEmailForm( )"> Compose Email  </md-button>
+		
+		
+         
+		   <ul class="list-group">
+                <li class="list-group-item active">SIDEBAR</li>
+               
+				<li class="list-group-item" ui-sref="home"><a href="">Inbox</a></li>
+				<li class="list-group-item" ui-sref="sent"><a href="">Sent mail</a></li>
+                <li class="list-group-item" ui-sref="trash"><a href="">Trash mail</a></li>
+                <li class="list-group-item" ui-sref="spam"><a href="">Spam mail</a></li>
+                 
+            </ul>
+        </div>
+        
+            <div   class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div data-ui-view=""></div> 
+               
+            </div>
+         
+ </div>
+ 
+     
+	<footer id="footer" class="bg-dark text-white  " ng-show="session.isLogedin===true" style="margin-bottom:0px">
+	<div class="text-center py-2 lead"> <a href="" target="_blank">A demo mail system</a></p></div>
+	</footer>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- include angular js -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<!-- needed for angular material -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	<!-- angular material Library -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.6/angular-ui-router.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
+	<!-- app -->
+	<script type="text/javascript" src="app/app.js"></script>
+	<!-- email controller -->
+	<script type="text/javascript" src="app/emails/controllers/email.controller.js"></script>
+	<script type="text/javascript" src="app/user/controllers/user.controller.js"></script>
+	<!-- email factory -->
+	<script type="text/javascript" src="app/emails/controllers/email.factory.js"></script>
+	<script type="text/javascript" src="app/user/controllers/user.factory.js"></script>
+
+</body>
+</html>

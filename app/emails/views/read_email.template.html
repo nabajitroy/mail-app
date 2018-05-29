@@ -1,0 +1,37 @@
+<div   ng-controller="emailsController" ng-init="readEmails()">
+
+   <table class="table table-striped">
+     
+    <tbody>
+      <tr ng-repeat="email in emails" ng-mouseover="showActionButtons = true" ng-mouseleave="showActionButtons = false"  >
+        <td style="width: 10%" ng-class="{read: email.read == '0'}" ui-sref="details({id: {{email.id}},parentid: {{email.parent_id}}})">{{email.from}}</td>
+        <td ng-class="{read: email.read == '0'}" ui-sref="details({id: {{email.id}},parentid: {{email.parent_id}}})">{{email.body}}</td>
+		<td style="width: 10%"">
+		{{email.created}}
+		 <span class="action-items" ng-show="showActionButtons">
+		<i class="material-icons" ng-click="spamEmails(email.id)">bug_report</i>
+		<i class="material-icons" style="font-size:20px;color:red" ng-click="deleteEmails(email.id)">delete</i>
+		</span>
+		</td>
+      </tr>
+	  
+	  <tr ng-if="!emails.length"  >
+         
+		<td style="width: 100%"">
+		Your inbox is empty
+		  
+		</td>
+      </tr>
+	  
+	  
+       
+    </tbody>
+  </table>
+ 
+ 
+  
+ 
+    
+</div> <!-- end row -->
+
+ 

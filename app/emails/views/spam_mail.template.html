@@ -1,0 +1,24 @@
+<div   ng-controller="emailsController" ng-init="readSpamEmails()">
+
+   <table class="table table-striped">
+     
+    <tbody>
+      <tr ng-repeat="email in emails" ng-mouseover="showActionButtons = true" ng-mouseleave="showActionButtons = false"  ui-sref="details({id: {{email.id}},parentid: {{email.parent_id}}})">
+        <td style="width: 10%" ng-class="{read: email.read == '0'}">{{email.from}}</td>
+        <td ng-class="{read: email.read == '0'}">{{email.body}}</td>
+		<td style="width: 10%"">
+		{{email.created}}
+		 
+		</td>
+      </tr>
+       
+    </tbody>
+  </table>
+ 
+  
+  
+ 
+    
+</div> <!-- end row -->
+
+ 
