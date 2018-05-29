@@ -4,8 +4,8 @@ class Database{
     // specify your own database credentials
     private $host = "localhost";
     private $db_name = "mail_app";
-    private $username = "atlas";
-    private $password = "password";
+    private $username = "your username  hare";
+    private $password = "your password here";
     public $conn;
  
     // get the database connection
